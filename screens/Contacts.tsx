@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import ContactBlock from '../components/EditScreenContacts';
 import { Text, View } from '../components/Themed';
@@ -12,15 +12,24 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'Contact
       <Text style={styles.title}>Contacts</Text>
       <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
       {/* <ContactBlock url='' username='Adrien' /> */}
-      <FlatList 
-        data={[
-          { url: '', username: 'Adrien' },
-          
+      <FlatList
 
+        data={[
+          {
+            url: 'www.maxifoot.fr', username: 'Adrien',
+
+
+          },
+          { url: 'www.jeuxvideo.com', username: 'Manue' },
+          { url: '', username: 'Adrien' },
+          { url: '', username: 'Adrien' },
+          { url: '', username: 'Adrien' },
         ]}
-        
-        renderItem={({item}) => <Text style={styles.item}>{item.username}</Text>}
+
+        renderItem={({ item }) => <ContactBlock username={item.username} url={item.url} />}
+
       />
+
 
     </View>
   );
